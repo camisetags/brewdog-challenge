@@ -2,7 +2,8 @@
 const main = (() => {
   const controller = new BeerController(
     beerArticleComponent,
-    new BeerSerializer()
+    new BeerSerializer(),
+    new BeerApi()
   );
 
   window.onload = () => {

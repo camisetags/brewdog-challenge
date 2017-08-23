@@ -1,7 +1,8 @@
 const main = (() => {
   const controller = new BeerController(
-    beerArticleComponent,
-    new BeerSerializer()
+    beerUnique,
+    new BeerSerializer(),
+    new BeerApi()
   );
 
   const beerId = getParameterByName('id');

@@ -1,8 +1,8 @@
 class BeerController {
-  constructor(component, beerSerializer) {
-    this.service = new BeerApi();
+  constructor(component, beerSerializer, service) {
+    this.service = service;
     this.component = component;
-    this.beerListContainer = document.querySelector('#cervejas');
+    this.beerDOMContainer = document.querySelector('#cervejas');
     this.beerSerializer = beerSerializer;
   }
 
@@ -26,15 +26,18 @@ class BeerController {
     this._loadBeersIntoDOM(filteredBeers);
   }
 
-  async getRandom() {
-    
-  }
-
   async show(id) {
-    let response = await this.service.getById(id);
-    let beer = await response.json();
-
-    console.log(beer[0]);
+    let response;
+    let beer;
+    if(id === 'random'){
+      response = await this.service.getRandom();
+      beer = await response.json();
+    } else {
+      response = await this.service.getById(id);
+      beer = await response.json();
+  
+    }
+    this._loadShowBeerIntoDOM(beer[0]);
   }
 
   async _fetchBeers() {
@@ -45,18 +48,23 @@ class BeerController {
       this.beerSerializer.serialize(beerList);
       this._loadBeersIntoDOM(beerList);
     } else {
-      this.beerListContainer.innerHTML = 'Nenhuma cerveja encontrada...'
+      this.beerDOMContainer.innerHTML = '<p class="nothing">Nenhuma cerveja encontrada...</p>'
     }
   }
 
   _loadBeersIntoDOM(beerList) {
-    this.beerListContainer.innerHTML = '';
+    this.beerDOMContainer.innerHTML = '';
     if (beerList.length > 0) {
       beerList.forEach((beer) => {
-        this.beerListContainer.innerHTML += `${this.component(beer)}\n`;
+        this.beerDOMContainer.innerHTML += `${this.component(beer)}\n`;
       });
     } else {
-      this.beerListContainer.innerHTML += `Nenhuma cerveja encontrada...`;
+      this.beerDOMContainer.innerHTML += `<p class="nothing">Nenhuma cerveja encontrada...</p>`;
     }
+  }
+
+  _loadShowBeerIntoDOM(beer) {
+    this.beerDOMContainer.innerHTML = '';
+    this.beerDOMContainer.innerHTML = this.component(beer);
   }
 }

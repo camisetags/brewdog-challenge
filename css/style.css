@@ -2,6 +2,14 @@ body {
 	background-color: #252525;
 	font-family: "arial";
 	margin: 0;
+	position: relative;
+    padding-bottom: 119px;
+}
+
+#cervejas .nothing{
+	color: #fff;
+	font-size: 30px;
+	text-align: center;
 }
 
 #header {
@@ -14,7 +22,7 @@ body {
 	margin-left: 20px;
 }
 
-#header button {
+#header .random {
 	color:#fff;
 	background:#252525;
 	border:0;
@@ -22,6 +30,7 @@ body {
 	float:right;
 	margin-top: 20px;
 	margin-right: 30px;
+	text-decoration: none;
 }
 
 #header form {
@@ -137,6 +146,9 @@ body {
 	background-color: #fff;
 	text-align: center;
 	padding: 30px;
+	position: absolute;
+    bottom: 0;
+    width: 100%;
 
 }
 
@@ -157,7 +169,7 @@ body {
 	#header form input {
 		width: 100%;
 	}
-	#header button {
+	#header .random {
 	    width: 38%;
 	}
 	#banner{
@@ -171,4 +183,22 @@ body {
 		margin: 10px 0;
 		box-sizing: border-box;
 	}
+}
+
+
+/* BEER UNIQUE */
+
+#cervejas.beer .beer-card{
+	display: block;
+	margin: 20px auto;
+}
+#cervejas.beer .beer-card.description, 
+#cervejas.beer .beer-card.combination{
+	padding: 10px;
+	height: auto;
+    min-height: 150px;
+}
+
+#cervejas.beer .beer-card.description p {
+	margin: 16px 0;
 }

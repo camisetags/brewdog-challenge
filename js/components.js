@@ -10,3 +10,22 @@ const beerArticleComponent = (beerObj) => (`
     </div>
   </a>
 `);
+
+const beerUnique = (beerObj) => (`
+  ${beerArticleComponent(beerObj)}
+  <div class="beer-card description">
+    <h2>Description</h2>
+    <p>
+      ${beerObj.description}
+    </p>
+  </div>
+
+  <div class="beer-card combination">
+    <h2>Combination</h2>
+    <ul>
+      ${beerObj.food_pairing.map((pairing) =>
+        `<li>${pairing}</li>`
+      ).join('')}
+    </ul>
+  </div>
+`);
