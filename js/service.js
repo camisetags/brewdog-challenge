@@ -20,8 +20,13 @@ class BeerApi {
 class BeerSerializer {
   serialize(obj) {
     try {
-      obj = JSON.stringify(obj);
-      window.localStorage.setItem('beerList', obj);
+      if (obj.length > 1) {
+        obj = JSON.stringify(obj);
+        window.localStorage.setItem('beerList', obj);
+      } else {
+        obj = JSON.stringify(obj);
+        window.localStorage.setItem(`beer${obj[0].id}`, obj); 
+      }
     } catch (e) {
       alert('Erro ao serializar objeto!');
       console.error(e);
@@ -32,6 +37,17 @@ class BeerSerializer {
     try {
       return JSON.parse(
         window.localStorage.getItem('beerList')
+      );
+    } catch (e) {
+      alert('Erro ao serializar objeto!');
+      console.error(e);
+    }
+  }
+
+  getBeer(id) {
+    try {
+      return JSON.parse(
+        window.localStorage.getItem(`beer${id}`)
       );
     } catch (e) {
       alert('Erro ao serializar objeto!');
