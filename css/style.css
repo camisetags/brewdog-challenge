@@ -1,6 +1,7 @@
 body {
 	background-color: #252525;
-	font-family: "arial"
+	font-family: "arial";
+	margin: 0;
 }
 
 #header {
@@ -26,7 +27,6 @@ body {
 #header form {
 	float:right;
 	border:5px solid #252525;
-	width: 233,5px;
 	margin-top: 23px;
 	margin-right: 30px;
 }
@@ -36,9 +36,10 @@ body {
 } 
 
 #cervejas {
-	background:#252525;
-	margin:0 auto;
 	max-width: 1366px;
+	margin:0 auto;
+    padding: 20px;
+	background:#252525;
 }
 
 #banner {
@@ -76,28 +77,33 @@ body {
 }
 
 
-a {
+.beer-card {
 	text-align: left;
 	border:5px solid #fff;
 	display:inline-block;
 	color:#fff;
-	margin: 20px;
+	margin-bottom: 20px;
 	height: 150px;
-	width: 44%;
+	width: 48%;
 	box-sizing: border-box;
 }
 
-a div{
+.beer-card:nth-child(odd){
+	margin-right: 20px;
+}
+
+.beer-card div{
 	display:inline-block;
 }
 
-a .img-container{
+.beer-card .img-container{
 	width: 25%;
 	height: 100%;
 	background-color: #fff;
+	float: left;
 }
 
-a .img-container img {
+.beer-card .img-container img {
 	display: block;
 	width: auto;
 	height: 100%;
@@ -105,8 +111,8 @@ a .img-container img {
 	text-align: center;
 }
 
-a .text-container {
-	width: 73%;
+.beer-card .text-container {
+	width: 75%;
 	vertical-align: top;
 	height: 100%;
 	padding-top: 45px;
@@ -115,12 +121,12 @@ a .text-container {
 
 }
 
-a h2 {
+.beer-card h2 {
 	font-size: 30px;
 	margin:0;
 }
 
-a p {
+.beer-card p {
 	font-size: 15px;
 	margin:0;
 	
@@ -138,17 +144,31 @@ a p {
 	body{
 		margin: 0;
 	}
+	#header {
+		padding: 10px;
+	}
+	#header img{
+		margin: 0;
+	}
+	#header form {
+		width: 30%;
+		margin-right: 0;
+	}
+	#header form input {
+		width: 100%;
+	}
+	#header button {
+	    width: 38%;
+	}
 	#banner{
 		background-size: auto;
 	}
 	#cervejas {
 		padding: 0 12px;
 	}
-	#cervejas a {
+	#cervejas .beer-card {
+		width: 100%;
 		margin: 10px 0;
 		box-sizing: border-box;
-	}
-	a{
-		width: 100%;
 	}
 }
