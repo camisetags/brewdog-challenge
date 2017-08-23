@@ -8,10 +8,10 @@
 
     <nav id="header">
         <img src="images/logo_header.png">
-        <FORM>
-            <input type=text size="20">
+        <form id="search-form">
+            <input id="q" type=text size="20">
             <input type=submit value=buscar>
-        </FORM>
+        </form>
         <button>Quero uma indicação ></button>
 
     </nav>
@@ -23,17 +23,16 @@
             et dolore magna aliqua. 
         </p>
     </section>
-    <section id="cervejas" onload="beerControlle.loadBeers()">
-        
+
+    <section id="cervejas">
     </section>
 
     <footer id="footer">
         <img src="images/Logo_header.png">
     </footer>
 
-
+    <script src="js/components.js"></script>
     <script src="js/service.js"></script>
-    <script src="js/model.js"></script>
     <script src="js/controller.js"></script>
     <script src="js/app.js"></script>
 </body>

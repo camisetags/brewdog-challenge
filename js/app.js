@@ -1,18 +1,18 @@
 
 const main = (() => {
-  let beerArticleComponent = (beerObj) => (`
-    <article>
-      <div class="img-container">
-          <img src="${beerObj.image_url}">
-      </div>
-      <div class="text-container">
-          <h2>${beerObj.name}</h2>
-          <p>${beerObj.tagline}</p>
-      </div>
-    </article>
-  `);
+  let controller = new BeerController(
+    beerArticleComponent,
+    new BeerSerializer()
+  );
 
-  let controller = new BeerController(beerArticleComponent);
-  controller.loadBeers();
+  window.onload = () => {
+    controller.loadList()
+  };
+
+  document.querySelector('#search-form')
+    .addEventListener('submit', (event) => {
+      event.preventDefault();
+      controller.search()
+    });
 })();
 
