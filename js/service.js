@@ -24,7 +24,7 @@ class BeerSerializer {
     }
   }
 
-  deserialize() {
+  getBeerList() {
     try {
       return JSON.parse(
         window.localStorage.getItem('beerList')

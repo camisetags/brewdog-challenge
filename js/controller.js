@@ -1,15 +1,16 @@
 class BeerController {
-  constructor(component, serializer) {
+  constructor(component, beerSerializer) {
     this.service = new BeerApi();
     this.component = component;
     this.beerListContainer = document.querySelector('#cervejas');
-    this.serializer = serializer;
-    this.beers = this.serializer.deserialize();
+    this.beerSerializer = beerSerializer;
   }
 
   loadList() {
-    if (this.beers) {
-      this._loadBeersIntoDOM(this.beers);
+    if (this.beerSerializer.getBeerList()) {
+      this._loadBeersIntoDOM(
+        this.beerSerializer.getBeerList()
+      );
     } else {
       this._fetchBeers();
     }
@@ -17,21 +18,24 @@ class BeerController {
 
   search() {
     const q = document.querySelector('#q').value;
-    let filteredBeers = this.beers.filter(beer => beer.name.toLowerCase().includes(q));
+    
+    let filteredBeers = this.beerSerializer
+      .getBeerList()
+      .filter(beer => beer.name.toLowerCase().includes(q));
+
     this._loadBeersIntoDOM(filteredBeers);
   }
 
-  _fetchBeers() {
-    this.service.list()
-      .then((response) => response.json())
-      .then((beerList) => {
-        if (beerList.length > 0) {
-          this.serializer.serialize(beerList);
-          this._loadBeersIntoDOM(beerList);
-        } else {
-          this.beerListContainer.innerHTML = 'Nenhuma cerveja encontrada...'
-        } 
-      });
+  async _fetchBeers() {
+    let response = await this.service.list();
+    let beerList = await response.json();
+    
+    if(beerList.length > 0) {
+      this.beerSerializer.serialize(beerList);
+      this._loadBeersIntoDOM(beerList);
+    } else {
+      this.beerListContainer.innerHTML = 'Nenhuma cerveja encontrada...'
+    }
   }
 
   _loadBeersIntoDOM(beerList) {
