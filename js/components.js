@@ -1,5 +1,5 @@
 
-let beerArticleComponent = (beerObj) => (`
+const beerArticleComponent = (beerObj) => (`
   <a class="beer-card" href="show.html?id=${beerObj.id}">
     <div class="img-container">
         <img src="${beerObj.image_url}">

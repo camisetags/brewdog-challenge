@@ -26,6 +26,17 @@ class BeerController {
     this._loadBeersIntoDOM(filteredBeers);
   }
 
+  async getRandom() {
+    
+  }
+
+  async show(id) {
+    let response = await this.service.getById(id);
+    let beer = await response.json();
+
+    console.log(beer[0]);
+  }
+
   async _fetchBeers() {
     let response = await this.service.list();
     let beerList = await response.json();

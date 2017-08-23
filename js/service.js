@@ -9,7 +9,11 @@ class BeerApi {
   }
 
   getById(beerId) {
-    return fetch(`${this.apiEndpoint}/beers/1`);
+    return fetch(`${this.apiEndpoint}/beers/${beerId}`);
+  }
+
+  getRandom() {
+    return fetch(`${this.apiEndpoint}/beers/random`);
   }
 }
 
@@ -34,4 +38,9 @@ class BeerSerializer {
       console.error(e);
     }
   }
+}
+
+getParameterByName = (name) => {
+  const parameter = new URLSearchParams(window.location.search);
+  return parameter.get(name);
 }
