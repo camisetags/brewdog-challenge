@@ -1,6 +1,6 @@
 
 let beerArticleComponent = (beerObj) => (`
-  <article>
+  <a class="beer-card" href="show.html?id=${beerObj.id}">
     <div class="img-container">
         <img src="${beerObj.image_url}">
     </div>
@@ -8,5 +8,5 @@ let beerArticleComponent = (beerObj) => (`
         <h2>${beerObj.name}</h2>
         <p>${beerObj.tagline}</p>
     </div>
-  </article>
+  </a>
 `);
