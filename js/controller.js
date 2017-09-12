@@ -2,7 +2,7 @@ class BeerController {
   constructor(component, beerSerializer, service) {
     this.service = service;
     this.component = component;
-    this.beerDOMContainer = document.querySelector('#cervejas');
+    this.beerDOMContainer = document.querySelector('.beer-container');
     this.beerSerializer = beerSerializer;
   }
 
@@ -17,7 +17,8 @@ class BeerController {
   }
 
   search() {
-    const q = document.querySelector('#q').value;
+    const q = document.querySelector('.q').value;
+    document.querySelector('.q').value = "";
     
     let filteredBeers = this.beerSerializer
       .getBeerList()
@@ -48,7 +49,7 @@ class BeerController {
       this.beerSerializer.serialize(beerList);
       this._loadBeersIntoDOM(beerList);
     } else {
-      this.beerDOMContainer.innerHTML = '<p class="nothing">Nenhuma cerveja encontrada...</p>'
+      this.beerDOMContainer.innerHTML = '<p class="no-results">Nenhuma cerveja encontrada...</p>'
     }
   }
 
@@ -59,7 +60,7 @@ class BeerController {
         this.beerDOMContainer.innerHTML += `${this.component(beer)}\n`;
       });
     } else {
-      this.beerDOMContainer.innerHTML += `<p class="nothing">Nenhuma cerveja encontrada...</p>`;
+      this.beerDOMContainer.innerHTML += `<p class="no-results">Nenhuma cerveja encontrada...</p>`;
     }
   }
 

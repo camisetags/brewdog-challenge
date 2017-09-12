@@ -7,32 +7,30 @@
 
 <body>
 
-    <nav id="header">
+    <nav class="header">
         <a href="index.html">
-            <img src="images/logo_header.png">
+            <img src="images/logo.png">
         </a>
-        <a class="random" href="show.html?id=random">Give me an indication ></a>
+        <form class="search-form">
+            <input class="q" type=text size="20" placeholder="Digite sua busca">
+        </form>
+        <a class="random-beer" href="show.html?id=random">Give me an indication ></a>
     </nav>
     
-    <section id="banner">
-        <img src="images/logo_footer.png">
+    <section class="banner">
+        <img src="images/logo-white.png">
         <h1>Our Beers</h1>
         <p>Welcome to the craft beer revolution! We brew hardcore beers for punks.
         </p>
     </section>
 
-    <section id="cervejas" class="beer">
+    <section class="beer-container beer">
 
     </section>
-
-    <footer id="footer">
-        <img src="images/Logo_header.png">
-    </footer>
 
     <script src="js/components.js"></script>
     <script src="js/service.js"></script>
     <script src="js/controller.js"></script>
-
     <script src="js/pages/show.js"></script>
 </body>
 </html>

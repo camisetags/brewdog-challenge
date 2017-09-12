@@ -2,37 +2,34 @@
 <head>
     <title>Brewdog</title>
     <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <nav id="header">
-        <img src="images/logo_header.png">
-        <form id="search-form">
-            <input id="q" type=text size="20" placeholder="Digite sua busca">
+    <nav class="header">
+        <a href="index.html">
+            <img src="images/logo.png">
+        </a>
+        <form class="search-form">
+            <input class="q" type=text size="20" placeholder="Digite sua busca">
         </form>
-        <a class="random" href="show.html?id=random">Give me an indication ></a>
+        <a class="random-beer" href="show.html?id=random">Give me an indication ></a>
     </nav>
 
-    <section id="banner">
-        <img src="images/logo_footer.png">
+    <section class="banner">
+        <img src="images/logo-white.png">
         <h1>Our Beers</h1>
         <p>Welcome to the craft beer revolution! We brew hardcore beers for punks.
         </p>
     </section>
 
-    <section id="cervejas">
+    <section class="beer-container">
     </section>
-
-    <footer id="footer">
-        <img src="images/Logo_header.png">
-    </footer>
 
     <script src="js/components.js"></script>
     <script src="js/controller.js"></script>
     <script src="js/service.js"></script>
-
     <script src="js/pages/index.js"></script>
 </body>
 </html>

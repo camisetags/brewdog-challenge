@@ -10,4 +10,11 @@ const main = (() => {
   window.onload = () => {
     controller.show(beerId);
   };
+
+  document.querySelector('.search-form')
+    .addEventListener('submit', (event) => {
+      event.preventDefault();
+      document.querySelector('.beer-container').classList.add('list');
+      controller.search();
+    });
 })();

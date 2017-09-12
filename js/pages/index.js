@@ -1,4 +1,3 @@
-
 const main = (() => {
   const controller = new BeerController(
     beerArticleComponent,
@@ -10,7 +9,7 @@ const main = (() => {
     controller.loadList();
   };
 
-  document.querySelector('#search-form')
+  document.querySelector('.search-form')
     .addEventListener('submit', (event) => {
       event.preventDefault();
       controller.search();
